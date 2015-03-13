@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Block" representedClassName="Block" syncable="YES">
+        <attribute name="blocktype" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="codecpp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="codeheader" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="showindex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="codeFile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CodeFile" inverseName="codeBlocks" inverseEntity="CodeFile" syncable="YES"/>
+    </entity>
+    <entity name="CodeFile" representedClassName="CodeFile" syncable="YES">
+        <attribute name="codeCPP" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="codeHeader" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="codeBlocks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Block" inverseName="codeFile" inverseEntity="Block" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="codeFiles" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Project" representedClassName="Project" syncable="YES">
+        <attribute name="autorname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creationdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastupdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="projectname" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="codeFiles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CodeFile" inverseName="project" inverseEntity="CodeFile" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Block" positionX="72" positionY="-303" width="128" height="135"/>
+        <element name="CodeFile" positionX="-171" positionY="-313" width="128" height="150"/>
+        <element name="Project" positionX="-369" positionY="-306" width="128" height="118"/>
+    </elements>
+</model>
